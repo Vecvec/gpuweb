@@ -594,7 +594,7 @@ interface GPUQueue {
 
 ### `compactBLAS`'s device timeline steps.
 - Check `blas.compactState` is `ready`
-- If this check fails, invalidate *this* and return.
+- If this check fails, generate a validation error and return.
 - Create a new `GPUBLAS` `compactedBlas` of size `blas.compactionSize`
 - Run `build index fetch steps` on this command encoder's device. the value returned will be `currentBuildIndex`
   - Set `compactedBlas.buildIndex` to `currentBuildIndex`
